@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zoo Appointment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        input[type="text"],
+        input[type="number"],
+        input[type="email"],
+        input[type="datetime-local"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: #2ecc71;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #27ae60;
+        }
+    </style>
+</head>
+<body>
+<h1>Make an Appointment</h1>
+<form id="appointmentForm" action="ThankYou.html" method="POST">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="phone">Phone Number:</label>
+    <input type="number" id="phone" name="phone" placeholder="Phone Number">
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="visit-time">Visit Time:</label>
+    <input type="datetime-local" id="visit-time" name="visit-time" required>
+
+    <input type="submit" value="Submit">
+</form>
+
+<script>
+    document.getElementById('appointmentForm').addEventListener('submit', function(event) {
+        // Get form data
+        const formData = {
+            name: document.getElementById('name').value,
+            phone: document.getElementById('phone').value,
+            email: document.getElementById('email').value,
+            visitTime: document.getElementById('visit-time').value
+        };
+
+        // Get existing appointments from localStorage or initialize an empty array
+        const appointments = JSON.parse(localStorage.getItem('appointments')) || [];
+
+        // Add new appointment to the list
+        appointments.push(formData);
+
+        // Save updated appointments to localStorage
+        localStorage.setItem('appointments', JSON.stringify(appointments));
+
+        // Redirect to ThankYou.html after form submission
+        window.location.href = 'ThankYou.html';
+
+        // Prevent form submission
+        event.preventDefault();
+    });
+</script>
+</body>
+</html>

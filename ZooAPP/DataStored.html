@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stored Appointments</title>
+  <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .delete-button {
+            background-color: #ff5555;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<h1>Stored Appointments</h1>
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Phone Number</th>
+    <th>Email</th>
+    <th>Visit Time</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+  <tbody id="appointmentTableBody"></tbody>
+</table>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const appointmentTableBody = document.getElementById('appointmentTableBody');
+
+        // Function to delete an appointment by index
+        function deleteAppointment(index) {
+            // Retrieve appointments from localStorage
+            let appointments = JSON.parse(localStorage.getItem('appointments')) || [];
+            // Remove the appointment from the appointments array
+            appointments.splice(index, 1);
+            // Update localStorage with the modified appointments array
+            localStorage.setItem('appointments', JSON.stringify(appointments));
+            // Refresh the table
+            displayAppointments();
+        }
+
+        // Function to display appointments in the table
+        function displayAppointments() {
+            appointmentTableBody.innerHTML = ''; // Clear the table body
+            // Retrieve appointments from localStorage
+            const appointments = JSON.parse(localStorage.getItem('appointments')) || [];
+            // Loop through appointments and append to table
+            appointments.forEach((appointment, index) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${appointment.name}</td>
+                    <td>${appointment.phone}</td>
+                    <td>${appointment.email}</td>
+                    <td>${appointment.visitTime}</td>
+                    <td><button class="delete-button">Delete</button></td>
+                `;
+                appointmentTableBody.appendChild(row);
+
+                // Add event listener for delete button
+                const deleteButton = row.querySelector('.delete-button');
+                deleteButton.addEventListener('click', () => deleteAppointment(index));
+            });
+        }
+
+        // Display appointments when the page loads
+        displayAppointments();
+    });
+</script>
+</body>
+</html>

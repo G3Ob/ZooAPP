@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zoo App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 40px;
+        }
+
+        header {
+            background-color: #2ecc71;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+        h1 {
+            margin: 0;
+        }
+        nav {
+            background-color: #27ae60;
+            padding: 10px 0;
+            text-align: center;
+            animation: slideInDown 1s ease;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            transition: background-color 0.3s ease;
+            display: inline-block;
+        }
+        nav a:hover {
+            background-color: #219653;
+        }
+        section {
+            padding: 20px;
+            animation: fadeIn 1s ease;
+        }
+        .animal {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            animation: zoomIn 1s ease;
+        }
+        .animal h3 {
+            color: #2c3e50;
+            margin-top: 0;
+        }
+        .animal p {
+            color: #666;
+        }
+        .animal img {
+            float: right;
+            border-radius: 50%;
+            margin-left: 20px;
+            width: 150px;
+            height: 150px;
+        }
+        /* Clear float after each .animal element */
+        .animal:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        .appointment {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            animation: slideInUp 1s ease;
+        }
+        .appointment h2 {
+            color: #2c3e50;
+            margin-top: 0;
+        }
+        .appointment p {
+            color: #666;
+        }
+        .appointment a {
+            display: inline-block;
+            background-color: #2ecc71;
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .appointment a:hover {
+            background-color: #27ae60;
+        }
+
+        /* Keyframe animations */
+        @keyframes slideInDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes zoomIn {
+            from {
+                transform: scale(0);
+            }
+            to {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Welcome to Our Zoo</h1>
+</header>
+<nav>
+    <a href="#mammals">Mammals</a>
+    <a href="#birds">Birds</a>
+    <a href="#reptiles">Reptiles</a>
+</nav>
+<section id="mammals">
+    <h2>Mammals</h2>
+    <div class="animal">
+        <h3>Lion</h3>
+        <p>The lion (Panthera leo) is a large cat of the genus Panthera, native to Africa and India. It has a muscular,
+            broad-chested body; a short, rounded head; round ears; and a hairy tuft at the end of its tail. It is sexually
+            dimorphic; adult male lions are larger than females and have a prominent mane. It is a social species, forming
+            groups called prides. A lion's pride consists of a few adult males, related females, and cubs. Groups of female
+            lions usually hunt together, preying mostly on large ungulates. The lion is an apex and keystone predator;
+            although some lions scavenge when opportunities occur and have been known to hunt humans, lions typically
+            do not actively seek out and prey on humans.</p>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZcpeW-0usO4wCNLuLzh91yLKPlucXt8kUwQhpABWR7A&s" alt="Lion">
+    </div>
+    <div class="animal">
+        <h3>Elephant</h3>
+        <p>Elephants are the largest living land animals. Three living species are currently recognised: the African bush
+            elephant (Loxodonta africana), the African forest elephant (L. cyclotis), and the Asian elephant (Elephas maximus).
+            They are the only surviving members of the family Elephantidae and the order Proboscidea; extinct relatives include
+            mammoths and mastodons. Distinctive features of elephants include a long proboscis called a trunk, tusks, large ear
+            flaps, pillar-like legs, and tough but sensitive grey skin. The trunk is prehensile, bringing food and water to the
+            mouth and grasping objects. Tusks, which are derived from the incisor teeth, serve both as weapons and as tools for
+            moving objects and digging. The large ear flaps assist in maintaining a constant body temperature as well as in communication.
+            African elephants have larger ears and concave backs, whereas Asian elephants have smaller ears and convex or level backs.</p>
+        <img src="https://cdn.britannica.com/02/152302-050-1A984FCB/African-savanna-elephant.jpg" alt="Elephant">
+    </div>
+</section>
+<section id="birds">
+    <h2>Birds</h2>
+    <div class="animal">
+        <h3>Parrot</h3>
+        <p>Parrots (Psittaciformes), also known as psittacines (/ˈsɪtəsaɪnz/),[1][2] are birds with a strong curved beak, upright
+            stance, and clawed feet.[a] They are conformed by four families that contain roughly 410 species in 101 genera, found
+            mostly in tropical and subtropical regions. The four families are the Psittaculidae (Old World parrots), Psittacidae
+            (African and New World parrots), Cacatuoidea (cockatoos), and Strigopidae (New Zealand parrots). One-third of all parrot
+            species are threatened by extinction, with a higher aggregate extinction risk (IUCN Red List Index) than any other
+            comparable bird group.[3] Parrots have a generally pantropical distribution with several species inhabiting temperate
+            regions as well. The greatest diversity of parrots is in South America[4] and Australasia.</p>
+        <img src="https://cdn.download.ams.birds.cornell.edu/api/v1/asset/414766991/1800" alt="Parrot">
+    </div>
+    <div class="animal">
+        <h3>Ostrich</h3>
+        <p>Ostriches are large flightless birds. They are the heaviest and largest living birds, with adult common ostriches weighing
+            anywhere between 63.5 and 145 kilograms and laying the largest eggs of any living land animal.[3] With the ability to run
+            at 70 km/h (43.5 mph),[4] they are the fastest birds on land. They are farmed worldwide, with significant industries in the
+            Philippines and in Namibia. Ostrich leather is a lucrative commodity, and the large feathers are used as plumes for the decoration
+            of ceremonial headgear. Ostrich eggs have been used by humans for millennia.</p>
+        <img src="https://nationalzoo.si.edu/sites/default/files/styles/wide/public/animals/20220812-037sb-1400x700-ostrich-web.jpg?itok=1j3mlMvr" alt="Ostrich">
+    </div>
+</section>
+<section id="reptiles">
+    <h2>Reptiles</h2>
+    <div class="animal">
+        <h3>Crocodile</h3>
+        <p>Crocodiles (family Crocodylidae) or true crocodiles are large semiaquatic reptiles that live throughout the tropics in Africa,
+            Asia, the Americas and Australia. The term crocodile is sometimes used even more loosely to include all extant members of the
+            order Crocodilia, which includes the alligators and caimans (family Alligatoridae), the gharial and false gharial (family Gavialidae)
+            among other extinct taxa.</p>
+        <img src="https://i.guim.co.uk/img/media/19866d0ba13327452f3920f463fced359c59d4c4/0_162_3648_2189/master/3648.jpg?width=1200&quality=85&auto=format&fit=max&s=3004ff8dc8ff118b9e742c69b37e5da7" alt="Crocodile">
+    </div>
+    <div class="animal">
+        <h3>Snake</h3>
+        <p>Snakes are elongated, limbless, carnivorous reptiles of the suborder Serpentes (/sɜːrˈpɛntiːz/).[2] Like all other squamates,
+            snakes are ectothermic, amniote vertebrates covered in overlapping scales. Many species of snakes have skulls with several
+            more joints than their lizard ancestors, enabling them to swallow prey much larger than their heads (cranial kinesis). To
+            accommodate their narrow bodies, snakes' paired organs (such as kidneys) appear one in front of the other instead of side by side,
+            and most have only one functional lung. Some species retain a pelvic girdle with a pair of vestigial claws on either side of the cloaca.
+            Lizards have independently evolved elongate bodies without limbs or with greatly reduced limbs at least twenty-five times via convergent
+            evolution, leading to many lineages of legless lizards.[3] These resemble snakes, but several common groups of legless lizards have
+            eyelids and external ears, which snakes lack, although this rule is not universal (see Amphisbaenia, Dibamidae, and Pygopodidae).</p>
+        <img src="https://www.nps.gov/bith/learn/nature/images/roughgreensnake_crop.jpeg" alt="Snake">
+    </div>
+</section>
+<section class="appointment">
+    <h2>Make an Appointment</h2>
+    <p>If you'd like to schedule a visit to our zoo, please click <a href="appointment.html">here</a>.</p>
+</section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    });
+</script>
+
+</body>
+</html>
